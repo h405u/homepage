@@ -23,7 +23,7 @@ header {
 .header-container {
   display: flex;
   align-items: center;
-  gap: 100px;
+  gap: 80px;
   flex-wrap: wrap;
   justify-content: center;
   margin-left: 50px;

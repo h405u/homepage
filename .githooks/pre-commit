@@ -3,3 +3,13 @@ set -eu
 
 repo_root=$(git rev-parse --show-toplevel)
 python3 "$repo_root/scripts/sync_pdfs.py" --stage
+
+timestamp=$(date "+%Y-%m-%d %H:%M:%S")
+index_file="$repo_root/index.html"
+
+sed -i.bak \
+  "s|<last-edited-at>.*</last-edited-at>|<last-edited-at>$timestamp</last-edited-at>|" \
+  "$index_file"
+rm "$index_file.bak"
+
+git -C "$repo_root" add -- index.html

@@ -4,7 +4,7 @@ set -eu
 repo_root=$(git rev-parse --show-toplevel)
 python3 "$repo_root/scripts/sync_pdfs.py" --stage
 
-timestamp=$(date "+%Y-%m-%d %H:%M:%S")
+timestamp=$(date -u "+%Y-%m-%d %H:%M:%S UTC")
 index_file="$repo_root/index.html"
 
 sed -i.bak \
